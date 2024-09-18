@@ -1,36 +1,31 @@
 import React from 'react'
-
+import { pagesLinks, pagesData } from './components/data'
 const Footer = () => {
     return (
         <footer className="section footer">
             <ul className="footer-links">
-                <li>
-                    <a href="#home" className="footer-link">home</a>
-                </li>
-                <li>
-                    <a href="#about" className="footer-link">about</a>
-                </li>
-                <li>
-                    <a href="#services" className="footer-link">services</a>
-                </li>
-                <li>
-                    <a href="#featured" className="footer-link">featured</a>
-                </li>
+                {pagesData.map((link) => {
+                    const { id, href, title } = link
+                    return (
+                        <li key={id}>
+                            <a href={href} className="footer-link">{title}</a>
+                        </li>
+                    )
+                })}
             </ul>
+
             <ul className="footer-icons">
-                <li>
-                    <a href="https://www.twitter.com" target="_blank" className="footer-icon"
-                    ><i className="fab fa-facebook" />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.twitter.com" target="_blank" className="footer-icon"
-                    ><i className="fab fa-twitter"/></a>
-                </li>
-                <li>
-                    <a href="https://www.twitter.com" target="_blank" className="footer-icon"
-                    ><i className="fab fa-squarespace"/></a>
-                </li>
+                {pagesLinks.map((link) => {
+                    const { id, href, icon } = link
+                    return (
+                        <li key={id}>
+                            <a href={href} target="_blank" className="footer-icon"
+                            ><i className={icon} />
+                            </a>
+                        </li>
+                    )
+                })}
+
             </ul>
             <p className="copyright">
                 copyright &copy; Backroads travel tours company
